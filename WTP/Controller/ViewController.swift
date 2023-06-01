@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         tf.borderStyle = .line
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.layer.borderWidth = 1.0
-        tf.layer.masksToBounds = true
+        tf.layer.masksToBounds = true // subviews will be clipped to the ROUNDED corners
         return tf
     }()
     
@@ -62,6 +62,8 @@ class ViewController: UIViewController {
         
         userNameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        userNameTextField.setLeftPaddingPoints(10)
+        passwordTextField.setLeftPaddingPoints(10)
         
         userNameTextField.delegate = self
         passwordTextField.delegate = self
