@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.placeholder = "Username"
-        tf.layer.cornerRadius = 20.5
+        tf.layer.cornerRadius = 25
         tf.borderStyle = .line
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.layer.borderWidth = 1.0
@@ -35,12 +35,19 @@ class ViewController: UIViewController {
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.isSecureTextEntry = true
         tf.placeholder = "Password"
-        tf.layer.cornerRadius = 20.5
+        tf.layer.cornerRadius = 25
         tf.borderStyle = .line
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.layer.borderWidth = 1.0
         tf.layer.masksToBounds = true // subviews will be clipped to the ROUNDED corners
         return tf
+    }()
+    
+    var continueButton: UIButton = {
+       let btn = UIButton()
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.titleLabel?.text = "Continue"
+        return btn
     }()
     
     override func viewDidLoad() {
@@ -51,6 +58,7 @@ class ViewController: UIViewController {
     
     func configureUI(){
        configureTextFields()
+       configureContinueButton()
     }
     
     func configureTextFields(){
@@ -68,6 +76,26 @@ class ViewController: UIViewController {
         userNameTextField.delegate = self
         passwordTextField.delegate = self
         
+    }
+    
+    func configureContinueButton(){
+        view.addSubview(continueButton)
+        
+        var config = UIButton.Configuration.filled()
+        config.title = "Continue"
+        config.cornerStyle = .capsule
+        config.baseBackgroundColor = .systemGray4
+        config.titlePadding = 5
+//        config.imagePadding = 200
+//        config.image = UIImage(systemName: "chevron.forward")?.withTintColor(.darkGray)
+//        config.imagePlacement = .trailing
+        
+        continueButton.configuration = config
+        continueButton.topAnchor.constraint(equalTo: textFieldsStackViewContainer.bottomAnchor,constant: 20).isActive = true
+        continueButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        continueButton.semanticContentAttribute = .forceLeftToRight
     }
 
 }
