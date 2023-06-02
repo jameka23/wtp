@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LoginViewController: UIViewController{
+class LoginViewController: UINavigationController {
     
 //    var identifier : String!
     var label: UILabel = {

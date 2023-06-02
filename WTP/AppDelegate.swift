@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else {
             let initialViewController = InitialViewController()
             window = UIWindow(frame: UIScreen().bounds)
-            window?.rootViewController = UINavigationController(rootViewController: initialViewController)
+            window?.rootViewController = initialViewController
             window?.makeKeyAndVisible()
         }
         

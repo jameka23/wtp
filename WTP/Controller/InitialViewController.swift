@@ -22,7 +22,7 @@ class InitialViewController: UIViewController {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.placeholder = "Username"
-        tf.layer.cornerRadius = 25
+        tf.layer.cornerRadius = 20
         tf.borderStyle = .line
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.layer.borderWidth = 1.0
@@ -35,7 +35,7 @@ class InitialViewController: UIViewController {
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.isSecureTextEntry = true
         tf.placeholder = "Password"
-        tf.layer.cornerRadius = 25
+        tf.layer.cornerRadius = 20
         tf.borderStyle = .line
         tf.layer.borderColor = UIColor.lightGray.cgColor
         tf.layer.borderWidth = 1.0
@@ -76,8 +76,8 @@ class InitialViewController: UIViewController {
         textFieldsStackViewContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         textFieldsStackViewContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        userNameTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        userNameTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         userNameTextField.setLeftPaddingPoints(10)
         passwordTextField.setLeftPaddingPoints(10)
         
@@ -100,7 +100,7 @@ class InitialViewController: UIViewController {
         
         continueButton.configuration = config
         continueButton.topAnchor.constraint(equalTo: textFieldsStackViewContainer.bottomAnchor,constant: 20).isActive = true
-        continueButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        continueButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         continueButton.semanticContentAttribute = .forceLeftToRight
