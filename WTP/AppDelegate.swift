@@ -12,7 +12,6 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let tableViewController = ViewController()
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -21,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // do nothing
         }
         else {
+            let initialViewController = InitialViewController()
             window = UIWindow(frame: UIScreen().bounds)
-            window?.rootViewController = tableViewController
+            window?.rootViewController = UINavigationController(rootViewController: initialViewController)
             window?.makeKeyAndVisible()
         }
         

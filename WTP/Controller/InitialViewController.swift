@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class InitialViewController: UIViewController {
     
     private lazy var textFieldsStackViewContainer: UIStackView = {
        let sv = UIStackView(arrangedSubviews: [userNameTextField,passwordTextField])
@@ -50,6 +50,12 @@ class ViewController: UIViewController {
         return btn
     }()
     
+    var imageContainer: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -60,6 +66,8 @@ class ViewController: UIViewController {
        configureTextFields()
        configureContinueButton()
     }
+    
+    
     
     func configureTextFields(){
         view.addSubview(textFieldsStackViewContainer)
@@ -96,10 +104,17 @@ class ViewController: UIViewController {
         continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         continueButton.semanticContentAttribute = .forceLeftToRight
+        
+        continueButton.addTarget(self, action: #selector(handleContinueButtonTap), for: .touchUpInside)
     }
 
+    @objc func handleContinueButtonTap(){
+        let loginViewController = LoginViewController()
+        navigationController?.pushViewController(loginViewController, animated: true)
+    }
+    
 }
-extension ViewController: UITextFieldDelegate {
+extension InitialViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //Check if there is any other text-field in the view whose tag is +1 greater than the current text-field on which the return key was pressed. If yes → then move the cursor to that next text-field. If No → Dismiss the keyboard
         if let nextField = self.view.viewWithTag(textField.tag + 1) as? UITextField {
