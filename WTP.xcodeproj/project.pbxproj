@@ -15,9 +15,11 @@
 		698E603E2A240A9D0003B948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698E603C2A240A9D0003B948 /* LaunchScreen.storyboard */; };
 		698E60492A283D520003B948 /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698E60482A283D520003B948 /* Padding.swift */; };
 		698E604B2A2981290003B948 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698E604A2A2981290003B948 /* LandingViewController.swift */; };
+		FA7E9CEC6F597B1661A40D64 /* Pods_WTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A81C1A5AD536312B92815C5 /* Pods_WTP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A81C1A5AD536312B92815C5 /* Pods_WTP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		698E602B2A240A9B0003B948 /* WTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		698E602E2A240A9B0003B948 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		698E60302A240A9B0003B948 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +30,8 @@
 		698E603F2A240A9D0003B948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		698E60482A283D520003B948 /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
 		698E604A2A2981290003B948 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		B924301ECF98C0FCC4469191 /* Pods-WTP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WTP.debug.xcconfig"; path = "Target Support Files/Pods-WTP/Pods-WTP.debug.xcconfig"; sourceTree = "<group>"; };
+		C69D1FAC63FEE1D8FDD3DEF0 /* Pods-WTP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WTP.release.xcconfig"; path = "Target Support Files/Pods-WTP/Pods-WTP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7E9CEC6F597B1661A40D64 /* Pods_WTP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,8 @@
 			children = (
 				698E602D2A240A9B0003B948 /* WTP */,
 				698E602C2A240A9B0003B948 /* Products */,
+				CBCA9E8AC014779F85E963D4 /* Pods */,
+				81AC08C682AEB5AD229AF095 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +104,24 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		81AC08C682AEB5AD229AF095 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A81C1A5AD536312B92815C5 /* Pods_WTP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CBCA9E8AC014779F85E963D4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B924301ECF98C0FCC4469191 /* Pods-WTP.debug.xcconfig */,
+				C69D1FAC63FEE1D8FDD3DEF0 /* Pods-WTP.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,9 +129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 698E60422A240A9D0003B948 /* Build configuration list for PBXNativeTarget "WTP" */;
 			buildPhases = (
+				AA105712F30A4EAE57A74386 /* [CP] Check Pods Manifest.lock */,
 				698E60272A240A9B0003B948 /* Sources */,
 				698E60282A240A9B0003B948 /* Frameworks */,
 				698E60292A240A9B0003B948 /* Resources */,
+				D8C2817589F3F6E25F76E982 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +188,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA105712F30A4EAE57A74386 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WTP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8C2817589F3F6E25F76E982 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WTP/Pods-WTP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WTP/Pods-WTP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WTP/Pods-WTP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		698E60272A240A9B0003B948 /* Sources */ = {
@@ -306,6 +375,7 @@
 		};
 		698E60432A240A9D0003B948 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B924301ECF98C0FCC4469191 /* Pods-WTP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -334,6 +404,7 @@
 		};
 		698E60442A240A9D0003B948 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C69D1FAC63FEE1D8FDD3DEF0 /* Pods-WTP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

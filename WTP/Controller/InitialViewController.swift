@@ -116,6 +116,8 @@ class InitialViewController: UIViewController {
         continueButton.semanticContentAttribute = .forceLeftToRight
         
         continueButton.addTarget(self, action: #selector(handleContinueButtonTap), for: .touchUpInside)
+        
+        //let button = GIDSignInButton(frame: CGRect(<YOUR_RECT>))
     }
 
     @objc func handleContinueButtonTap(){
