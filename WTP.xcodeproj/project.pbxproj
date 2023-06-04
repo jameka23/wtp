@@ -118,7 +118,6 @@
 				B924301ECF98C0FCC4469191 /* Pods-WTP.debug.xcconfig */,
 				C69D1FAC63FEE1D8FDD3DEF0 /* Pods-WTP.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

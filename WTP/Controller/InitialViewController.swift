@@ -6,6 +6,7 @@
 //  Login Screen
 
 import UIKit
+import GoogleSignIn
 
 class InitialViewController: UIViewController {
     
@@ -17,6 +18,15 @@ class InitialViewController: UIViewController {
         sv.distribution = .fillEqually
         return sv
     }()
+    
+    private lazy var buttonsStackViewContainer:  UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [continueButton, googleButton])
+         sv.translatesAutoresizingMaskIntoConstraints = false
+         sv.axis = .vertical
+         sv.spacing = 20
+         sv.distribution = .fillEqually
+         return sv
+     }()
     
     var userNameTextField: UITextField = {
         let tf = UITextField()
@@ -49,11 +59,20 @@ class InitialViewController: UIViewController {
         return btn
     }()
     
+    var googleButton: UIButton = {
+        let btn = UIButton()
+         btn.translatesAutoresizingMaskIntoConstraints = false
+         return btn
+     }()
+    
     var imageContainer: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    
+    
+    let signInConfig = GIDConfiguration(clientID: "359430597125-k1t3p60hhbl42ho4rt1cv84h6sc7nelj.apps.googleusercontent.com")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,11 +81,12 @@ class InitialViewController: UIViewController {
     }
     
     func configureUI(){
-       configureTextFields()
-       configureContinueButton()
+        configureTextFields()
+        configureContinueButton()
+        configureGoogleButton()
+        configureButtonStackView()
     }
-    
-    
+
     
     func configureTextFields(){
         view.addSubview(textFieldsStackViewContainer)
@@ -96,33 +116,55 @@ class InitialViewController: UIViewController {
         
     }
     
-    func configureContinueButton(){
-        view.addSubview(continueButton)
+    func configureButtonStackView(){
+        view.addSubview(buttonsStackViewContainer)
+    
+        buttonsStackViewContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        buttonsStackViewContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        buttonsStackViewContainer.topAnchor.constraint(equalTo: textFieldsStackViewContainer.bottomAnchor, constant: 20).isActive = true
         
+        continueButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        googleButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+    
+    func configureContinueButton(){
         var config = UIButton.Configuration.filled()
         config.title = "Continue"
-        
         config.cornerStyle = .capsule
         config.baseBackgroundColor = .systemGray6
         config.baseForegroundColor = .systemGray
         config.titlePadding = 5
 
-        
         continueButton.configuration = config
-        continueButton.topAnchor.constraint(equalTo: textFieldsStackViewContainer.bottomAnchor,constant: 20).isActive = true
-        continueButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        continueButton.semanticContentAttribute = .forceLeftToRight
-        
         continueButton.addTarget(self, action: #selector(handleContinueButtonTap), for: .touchUpInside)
+    }
+    
+    func configureGoogleButton(){
+        var config = UIButton.Configuration.filled()
+        config.title = "Sign In with Google"
+        config.cornerStyle = .capsule
+        config.image = UIImage(named: "btn_google_light_normal_ios")
+        config.baseBackgroundColor = .white
+//        config.layer?.borderColor
+        config.baseForegroundColor = .black
         
-        //let button = GIDSignInButton(frame: CGRect(<YOUR_RECT>))
+        googleButton.configuration = config
+        googleButton.addTarget(self, action: #selector(handleGoogleSignInTap), for: .touchUpInside)
+
     }
 
     @objc func handleContinueButtonTap(){
         let landingViewController = LandingViewController()
         navigationController?.pushViewController(landingViewController, animated: true)
+    }
+    
+    @objc func handleGoogleSignInTap(){
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            guard error == nil else { return }
+            let landingViewController = LandingViewController()
+            self.navigationController?.pushViewController(landingViewController, animated: true)
+        }
     }
     
 }
