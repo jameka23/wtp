@@ -70,9 +70,7 @@ class InitialViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
-    
-    let signInConfig = GIDConfiguration(clientID: "359430597125-k1t3p60hhbl42ho4rt1cv84h6sc7nelj.apps.googleusercontent.com")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
