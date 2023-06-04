@@ -59,6 +59,12 @@ class InitialViewController: UIViewController {
         return btn
     }()
     
+    var middleView: UIView = {
+       let tv = UIView()
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
+    }()
+    
     var googleButton: UIButton = {
         let btn = UIButton()
          btn.translatesAutoresizingMaskIntoConstraints = false
@@ -138,19 +144,24 @@ class InitialViewController: UIViewController {
     }
     
     func configureGoogleButton(){
-        var config = UIButton.Configuration.filled()
-        config.title = "Sign In with Google"
-        config.cornerStyle = .capsule
-        config.image = UIImage(named: "btn_google_light_normal_ios")
-        config.baseBackgroundColor = .white
-//        config.layer?.borderColor
-        config.baseForegroundColor = .black
-        
-        googleButton.configuration = config
+        googleButton.layer.borderColor = UIColor.systemGray4.cgColor
+        googleButton.layer.borderWidth = 1.0
+        googleButton.layer.cornerRadius = 20
+        googleButton.layer.masksToBounds = true
         googleButton.addTarget(self, action: #selector(handleGoogleSignInTap), for: .touchUpInside)
-
+        
+        var config = UIButton.Configuration.plain()
+        config.image = UIImage(named: "small_logo")
+        config.title = "Sign In with Google"
+        config.baseForegroundColor = .black
+        config.background.backgroundColor = .white
+        config.imagePlacement = .leading
+        config.imagePadding = 3
+        config.titleAlignment = .center
+        googleButton.configuration = config
     }
 
+    
     @objc func handleContinueButtonTap(){
         let landingViewController = LandingViewController()
         navigationController?.pushViewController(landingViewController, animated: true)
