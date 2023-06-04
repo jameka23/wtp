@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-class LoginViewController: UINavigationController {
+class LandingViewController: UIViewController {
     
-//    var identifier : String!
     var label: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +19,7 @@ class LoginViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLabel()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemRed
 //        configureBackButton()
     }
     

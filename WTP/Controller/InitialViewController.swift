@@ -24,7 +24,7 @@ class InitialViewController: UIViewController {
         tf.placeholder = "Username"
         tf.layer.cornerRadius = 20
         tf.borderStyle = .line
-        tf.layer.borderColor = UIColor.lightGray.cgColor
+        tf.layer.borderColor = UIColor.systemGray4.cgColor
         tf.layer.borderWidth = 1.0
         tf.layer.masksToBounds = true
         return tf
@@ -37,7 +37,7 @@ class InitialViewController: UIViewController {
         tf.placeholder = "Password"
         tf.layer.cornerRadius = 20
         tf.borderStyle = .line
-        tf.layer.borderColor = UIColor.lightGray.cgColor
+        tf.layer.borderColor = UIColor.systemGray4.cgColor
         tf.layer.borderWidth = 1.0
         tf.layer.masksToBounds = true // subviews will be clipped to the ROUNDED corners
         return tf
@@ -46,7 +46,6 @@ class InitialViewController: UIViewController {
     var continueButton: UIButton = {
        let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.titleLabel?.text = "Continue"
         return btn
     }()
     
@@ -81,6 +80,17 @@ class InitialViewController: UIViewController {
         userNameTextField.setLeftPaddingPoints(10)
         passwordTextField.setLeftPaddingPoints(10)
         
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 20))
+        imageView.image = UIImage(systemName: "eye.slash")
+        imageView.tintColor = .systemGray4
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+        paddingView.addSubview(imageView)
+        
+        passwordTextField.rightView = paddingView
+        passwordTextField.rightViewMode = .always
+        
         userNameTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -91,12 +101,12 @@ class InitialViewController: UIViewController {
         
         var config = UIButton.Configuration.filled()
         config.title = "Continue"
+        
         config.cornerStyle = .capsule
-        config.baseBackgroundColor = .systemGray4
+        config.baseBackgroundColor = .systemGray6
+        config.baseForegroundColor = .systemGray
         config.titlePadding = 5
-//        config.imagePadding = 200
-//        config.image = UIImage(systemName: "chevron.forward")?.withTintColor(.darkGray)
-//        config.imagePlacement = .trailing
+
         
         continueButton.configuration = config
         continueButton.topAnchor.constraint(equalTo: textFieldsStackViewContainer.bottomAnchor,constant: 20).isActive = true
@@ -109,8 +119,8 @@ class InitialViewController: UIViewController {
     }
 
     @objc func handleContinueButtonTap(){
-        let loginViewController = LoginViewController()
-        navigationController?.pushViewController(loginViewController, animated: true)
+        let landingViewController = LandingViewController()
+        navigationController?.pushViewController(landingViewController, animated: true)
     }
     
 }

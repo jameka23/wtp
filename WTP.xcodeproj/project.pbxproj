@@ -14,7 +14,7 @@
 		698E603B2A240A9D0003B948 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 698E603A2A240A9D0003B948 /* Assets.xcassets */; };
 		698E603E2A240A9D0003B948 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 698E603C2A240A9D0003B948 /* LaunchScreen.storyboard */; };
 		698E60492A283D520003B948 /* Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698E60482A283D520003B948 /* Padding.swift */; };
-		698E604B2A2981290003B948 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698E604A2A2981290003B948 /* LoginViewController.swift */; };
+		698E604B2A2981290003B948 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698E604A2A2981290003B948 /* LandingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		698E603D2A240A9D0003B948 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		698E603F2A240A9D0003B948 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		698E60482A283D520003B948 /* Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Padding.swift; sourceTree = "<group>"; };
-		698E604A2A2981290003B948 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		698E604A2A2981290003B948 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				698E60322A240A9B0003B948 /* InitialViewController.swift */,
-				698E604A2A2981290003B948 /* LoginViewController.swift */,
+				698E604A2A2981290003B948 /* LandingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				698E604B2A2981290003B948 /* LoginViewController.swift in Sources */,
+				698E604B2A2981290003B948 /* LandingViewController.swift in Sources */,
 				698E60332A240A9B0003B948 /* InitialViewController.swift in Sources */,
 				698E60492A283D520003B948 /* Padding.swift in Sources */,
 				698E602F2A240A9B0003B948 /* AppDelegate.swift in Sources */,
