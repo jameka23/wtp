@@ -20,12 +20,11 @@ class LandingViewController: UIViewController {
         super.viewDidLoad()
         configureLabel()
         view.backgroundColor = .systemRed
-//        configureBackButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     
