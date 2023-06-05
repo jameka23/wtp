@@ -34,7 +34,7 @@ class InitialViewController: UIViewController {
         tf.placeholder = "Username"
         tf.layer.cornerRadius = 20
         tf.borderStyle = .line
-        tf.layer.borderColor = UIColor.systemGray4.cgColor
+        tf.layer.borderColor = UIColor.systemIndigo.cgColor
         tf.layer.borderWidth = 1.0
         tf.layer.masksToBounds = true
         return tf
@@ -47,7 +47,7 @@ class InitialViewController: UIViewController {
         tf.placeholder = "Password"
         tf.layer.cornerRadius = 20
         tf.borderStyle = .line
-        tf.layer.borderColor = UIColor.systemGray4.cgColor
+        tf.layer.borderColor = UIColor.systemIndigo.cgColor
         tf.layer.borderWidth = 1.0
         tf.layer.masksToBounds = true // subviews will be clipped to the ROUNDED corners
         return tf
@@ -59,10 +59,10 @@ class InitialViewController: UIViewController {
         return btn
     }()
     
-    var middleView: UIView = {
-       let tv = UIView()
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        return tv
+    var logoImageView: UIImageView = {
+       let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        return imgView
     }()
     
     var googleButton: UIButton = {
@@ -85,17 +85,27 @@ class InitialViewController: UIViewController {
     }
     
     func configureUI(){
+        configureLogo()
         configureTextFields()
         configureContinueButton()
         configureGoogleButton()
         configureButtonStackView()
+        
     }
 
+    func configureLogo(){
+        view.addSubview(logoImageView)
+        logoImageView.image = UIImage(named: "landingLogo")
+        logoImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        logoImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        logoImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
     
     func configureTextFields(){
         view.addSubview(textFieldsStackViewContainer)
-        textFieldsStackViewContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textFieldsStackViewContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        textFieldsStackViewContainer.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: -30).isActive = true
         textFieldsStackViewContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         textFieldsStackViewContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
@@ -107,7 +117,7 @@ class InitialViewController: UIViewController {
         
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 20))
         imageView.image = UIImage(systemName: "eye.slash")
-        imageView.tintColor = .systemGray4
+        imageView.tintColor = .systemIndigo
         
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
         paddingView.addSubview(imageView)
@@ -125,8 +135,8 @@ class InitialViewController: UIViewController {
     
         buttonsStackViewContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         buttonsStackViewContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        buttonsStackViewContainer.topAnchor.constraint(equalTo: textFieldsStackViewContainer.bottomAnchor, constant: 20).isActive = true
-        
+
+        buttonsStackViewContainer.bottomAnchor.constraint(equalTo: textFieldsStackViewContainer.bottomAnchor, constant: 130).isActive = true
         continueButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
         googleButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
@@ -161,7 +171,6 @@ class InitialViewController: UIViewController {
         googleButton.configuration = config
     }
 
-    
     @objc func handleContinueButtonTap(){
         let landingViewController = LandingViewController()
         navigationController?.pushViewController(landingViewController, animated: true)
